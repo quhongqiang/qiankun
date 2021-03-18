@@ -1,12 +1,14 @@
 import Vue from 'vue'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
 import { registerMicroApps, start, setDefaultMountApp } from 'qiankun';
-
+Vue.use(ElementUI);
 Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#mainapp')
 
 /**
  * Step1 注册子应用
@@ -20,10 +22,16 @@ registerMicroApps(
       activeRule: '/react1',
     },
     {
-      name: 'vue',
+      name: 'vue1',
       entry: '//localhost:7101',
       container: '#subapp-viewport',
-      activeRule: '/vue',
+      activeRule: '/vue1',
+    },
+    {
+      name: 'jquery1',
+      entry: '//localhost:7104',
+      container: '#subapp-viewport',
+      activeRule: '/jquery1',
     },
   ],
   {

@@ -1,18 +1,45 @@
 <template>
-  <div class="mainapp">
-    <header class="mainapp-header">
-      <h1>这里是个头部公用</h1>
-    </header>
-    <div class="mainapp-main">
-      <!-- 侧边栏 -->
-      <ul class="mainapp-sidemenu">
-        <li @click="goToUrl('/react1')">react1</li>
-        <li @click="goToUrl('/vue')">Vue</li>
-        <li @click="goToUrl('/jquery')">jquery</li>
-      </ul>
-      <!-- 子应用  -->
-      <main id="subapp-viewport"></main>
-    </div>
+  <div class="mainapp" id="mainapp">
+    <el-container style="height: 100%; border: 1px solid #eee">
+      <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+        <el-menu>
+          <el-submenu index="1">
+            <template slot="title"><i class="el-icon-message"></i>导航一</template>
+            <el-menu-item-group>
+              <el-menu-item index="1-1" @click="goToUrl('/react1')">react1</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title"><i class="el-icon-menu"></i>导航二</template>
+            <el-menu-item-group>
+              <el-menu-item index="2-1" @click="goToUrl('/vue1')">vue1</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+          <el-submenu index="3">
+            <template slot="title"><i class="el-icon-setting"></i>导航三</template>
+            <el-menu-item-group>
+              <el-menu-item index="3-1" @click="goToUrl('/jquery1')">jquery1</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
+      </el-aside>
+      <el-container>
+        <el-header style="text-align: right; font-size: 14px">
+          <el-dropdown>
+            <i class="el-icon-setting" style="margin-right: 15px"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>查看</el-dropdown-item>
+              <el-dropdown-item>新增</el-dropdown-item>
+              <el-dropdown-item>删除</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <span>王小虎</span>
+        </el-header>
+        <el-main>
+          <main id="subapp-viewport"></main>
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
@@ -26,59 +53,24 @@
     },
   }
 </script>
-
-<style lang="scss">
-body {
-  margin: 0;
-}
-.mainapp {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  line-height: 1;
-}
-.mainapp-header {
-  >h1 {
-    color: #333;
-    font-size: 36px;
-    font-weight: 700;
+<style>
+  html,body,#mainapp {
     margin: 0;
-    padding: 36px;
-  }
-}
-.mainapp-main {
-  display: flex;
-  .mainapp-sidemenu {
-    width: 130px;
-    list-style: none;
-    margin: 0;
-    margin-left: 40px;
     padding: 0;
-    border-right: 2px solid #aaa;
-    >li {
-      color: #aaa;
-      margin: 20px 0;
-      font-size: 18px;
-      font-weight: 400;
-      cursor: pointer;
-      &:hover {
-        color: #444;
-      }
-      &:first-child {
-        margin-top: 5px;
-      }
-    }
+    height: 100%;
+    width: 100%;
+  }
+</style>
+<style lang="scss">
+.mainapp {
+  .el-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
+  }
+  
+  .el-aside {
+    color: #333;
   }
 }
-
-#subapp-container {
-  flex-grow: 1;
-  position: relative;
-  margin: 0 40px;
-  .subapp-loading {
-    color: #444;
-    font-size: 28px;
-    font-weight: 600;
-    text-align: center;
-  }
-}
-
 </style>
