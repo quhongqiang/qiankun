@@ -21,6 +21,12 @@
               <el-menu-item index="3-1" @click="goToUrl('/jquery1')">jquery1</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
+          <el-submenu index="4">
+            <template slot="title"><i class="el-icon-message"></i>主应用</template>
+            <el-menu-item-group>
+              <el-menu-item index="1-1" @click="goToUrl('/')">基座main</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
         </el-menu>
       </el-aside>
       <el-container>
@@ -33,7 +39,7 @@
               <el-dropdown-item>删除</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <span>王小虎</span>
+          <el-button @click="writeBtn">写入数据</el-button>
         </el-header>
         <el-main>
           <main id="subapp-viewport"></main>
@@ -44,11 +50,27 @@
 </template>
 
 <script>
+  import actions from "@/action/actions";
   export default {
     name: 'mainapp',
+    mounted() {
+      actions.onGlobalStateChange((state, prevState) => {
+        console.log("改变前 ", prevState.userInfo);
+        console.log("改变后",  state.userInfo);
+      });
+    },
     methods: {
       goToUrl(subapp) {
         history.pushState(null, subapp, subapp)
+      },
+      writeBtn() {
+        let userInfo = {
+          name: '曲小强',
+          age: 27,
+          sex: '男',
+          desc: '肥宅快乐水，活力一整天。'
+        }
+        actions.setGlobalState({userInfo});
       }
     },
   }

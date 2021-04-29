@@ -41,7 +41,7 @@ registerMicroApps(
 /**
  * Step2 设置默认进入的子应用
  */
-setDefaultMountApp('/react1');
+setDefaultMountApp('/');
 
 /**
  * Step3 启动应用
