@@ -8,7 +8,8 @@ function resolve(dir) {
 const port = 7101; // dev port
 
 module.exports = {
-
+  publicPath: './',
+  productionSourceMap: false,
   outputDir: 'dist',
   assetsDir: 'static',
   filenameHashing: true,

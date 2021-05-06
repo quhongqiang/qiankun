@@ -3,6 +3,9 @@
     <div>姓名：{{userInfo && userInfo.name}}</div>
     <div>年龄：{{userInfo && userInfo.age}}</div>
     <div>性别：{{userInfo && userInfo.sex}}</div>
+    <div>描述：{{userInfo && userInfo.desc}}</div>
+    <br />
+    <button @click="changeInfo">逮捕嫌疑人</button>
   </div>
 </template>
 
@@ -19,12 +22,23 @@ export default {
     // 注册观察者函数
     // onGlobalStateChange 第二个参数为 true，表示立即执行一次观察者函数
     actions.onGlobalStateChange(state => {
-      console.log(state, 'statestate')
+      console.log(state, 'statestate111')
       const { userInfo } = state;
 
       // 获取用户信息
       this.userInfo = userInfo;
     }, true);
+  },
+  methods: {
+    changeInfo() {
+      let userInfo = {
+        name: '被抓的张三',
+        age: 26,
+        sex: '男',
+        desc: '违法的事，不可做啊~',
+      }
+      actions.setGlobalState({userInfo});
+    }
   },
 }
 </script>

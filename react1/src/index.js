@@ -2,8 +2,13 @@ import './public-path';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import actions from './actions'
 
 function render(props) {
+  if (props) {
+    // 注入 actions 实例
+    actions.setActions(props);
+  }
   const { container } = props;
   ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
 }

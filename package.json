@@ -8,10 +8,8 @@
     "install:main": "cd main && npm i",
     "install:vue1": "cd vue1 && npm i",
     "install:react1": "cd react1 && npm i",
-    "install:jquery1": "cd jquery1 && yarn",
     "start": "npm-run-all --parallel start:*",
     "start:react1": "cd react1 && npm start",
-    "start:jquery1": "cd jquery1 && yarn start",
     "start:vue1": "cd vue1 && npm start",
     "start:main": "cd main && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"

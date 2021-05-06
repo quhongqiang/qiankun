@@ -1,7 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import actions from './actions';
 
 function App() {
+  const [ userInfo, setUserInfo] = useState();
+  useEffect(() => {
+    actions.onGlobalStateChange(state => {
+      const { userInfo } = state;
+      setUserInfo(userInfo);
+    }, true);
+  });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +19,21 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>姓名：{userInfo?.name}</div>
+        <div>年龄：{userInfo?.age}</div>
+        <div>性别：{userInfo?.sex}</div>
+        <div>描述：{userInfo?.desc}</div>
+        <br />
+        <button onClick={ () => {
+          let userInfo = {
+            name: '出狱的张三',
+            age: 28,
+            sex: '男',
+            desc: '不要忘记，吾等为何而战~',
+          }
+          actions.setGlobalState({userInfo});
+        }}>刑满释放</button>
+        <br />
       </header>
     </div>
   );

@@ -15,12 +15,6 @@
               <el-menu-item index="2-1" @click="goToUrl('/vue1')">vue1</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-submenu index="3">
-            <template slot="title"><i class="el-icon-setting"></i>导航三</template>
-            <el-menu-item-group>
-              <el-menu-item index="3-1" @click="goToUrl('/jquery1')">jquery1</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
           <el-submenu index="4">
             <template slot="title"><i class="el-icon-message"></i>主应用</template>
             <el-menu-item-group>
@@ -39,7 +33,7 @@
               <el-dropdown-item>删除</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <el-button @click="writeBtn">写入数据</el-button>
+          <!-- <el-button @click="writeBtn">写入数据</el-button> -->
         </el-header>
         <el-main>
           <main id="subapp-viewport"></main>
@@ -63,15 +57,15 @@
       goToUrl(subapp) {
         history.pushState(null, subapp, subapp)
       },
-      writeBtn() {
-        let userInfo = {
-          name: '曲小强',
-          age: 27,
-          sex: '男',
-          desc: '肥宅快乐水，活力一整天。'
-        }
-        actions.setGlobalState({userInfo});
-      }
+      // writeBtn() {
+      //   let userInfo = {
+      //     name: '曲小强',
+      //     age: 27,
+      //     sex: '男',
+      //     desc: '肥宅快乐水，活力一整天。'
+      //   }
+      //   actions.setGlobalState({userInfo});
+      // }
     },
   }
 </script>

@@ -1,21 +1,15 @@
 const routerApp = [
   {
     name: 'react1',
-    entry: '//localhost:7100',
+    entry: 'http://test-h5.mumway.com/qiankun/child/react1/',
     container: '#subapp-viewport',
-    activeRule: '/react1',
+    activeRule: 'http://test-h5.mumway.com/qiankun/child/react1/',
   },
   {
     name: 'vue1',
-    entry: '//localhost:7101',
+    entry: 'http://test-h5.mumway.com/qiankun/child/vue1/',
     container: '#subapp-viewport',
-    activeRule: '/vue1',
-  },
-  {
-    name: 'jquery1',
-    entry: '//localhost:7104',
-    container: '#subapp-viewport',
-    activeRule: '/jquery1',
+    activeRule: 'http://test-h5.mumway.com/qiankun/child/vue1/',
   },
 ]
 
