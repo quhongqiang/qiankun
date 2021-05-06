@@ -15,4 +15,10 @@ module.exports = {
     historyApiFallback: true, // 当使用 HTML5 History API 时, 所有的 404 请求都会响应 index.html 的内容。 将 devServer.historyApiFallback 设为 true开启：
     overlay: { warnings: false, errors: true }, // 显示编译器错误
   },
+  chainWebpack: config => {
+    config.plugin('html').tap((args) => {
+      args[0].title = 'qiankun'
+      return args
+    })
+  }
 };

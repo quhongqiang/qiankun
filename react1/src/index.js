@@ -5,7 +5,7 @@ import App from './App';
 import actions from './actions'
 
 function render(props) {
-  if (props) {
+  if (Object.keys(props).length != 0) {
     // 注入 actions 实例
     actions.setActions(props);
   }

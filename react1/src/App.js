@@ -4,7 +4,12 @@ import React, { useState, useEffect } from 'react';
 import actions from './actions';
 
 function App() {
-  const [ userInfo, setUserInfo] = useState();
+  const [ userInfo, setUserInfo] = useState({
+    name: '阿达十多万',
+    age: 16,
+    sex: '女',
+    desc: '阿打算打打瓦达adad阿达啊啊'
+  });
   useEffect(() => {
     actions.onGlobalStateChange(state => {
       const { userInfo } = state;

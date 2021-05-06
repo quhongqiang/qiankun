@@ -15,7 +15,12 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      userInfo: {}
+      userInfo: {
+        name: '这是元项目',
+        age: 11,
+        sex: '男',
+        desc: '十四行诗是所所所所'
+      }
     }
   },
   mounted() {

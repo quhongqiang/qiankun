@@ -1,16 +1,16 @@
 const routerApp = [
   {
     name: 'react1',
-    entry: 'http://test-h5.mumway.com/qiankun/child/react1/',
+    entry: '//test-h5.mumway.com//qiankun/react1/',
+    activeRule: '/react1',
     container: '#subapp-viewport',
-    activeRule: 'http://test-h5.mumway.com/qiankun/child/react1/',
   },
   {
     name: 'vue1',
-    entry: 'http://test-h5.mumway.com/qiankun/child/vue1/',
+    entry: '//test-h5.mumway.com//qiankun/vue1/',
+    activeRule: '/vue1',
     container: '#subapp-viewport',
-    activeRule: 'http://test-h5.mumway.com/qiankun/child/vue1/',
   },
-]
+];
 
 export default routerApp

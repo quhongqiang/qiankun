@@ -7,7 +7,8 @@ Vue.config.productionTip = false;
 
 let instance = null;
 function render(props = {}) {
-  if (props) {
+  console.log(props, 'prosp')
+  if (Object.keys(props).length != 0) {
     // 注入 actions 实例
     actions.setActions(props);
   }

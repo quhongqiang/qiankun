@@ -15,12 +15,6 @@
               <el-menu-item index="2-1" @click="goToUrl('/vue1')">vue1</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-submenu index="4">
-            <template slot="title"><i class="el-icon-message"></i>主应用</template>
-            <el-menu-item-group>
-              <el-menu-item index="1-1" @click="goToUrl('/')">基座main</el-menu-item>
-            </el-menu-item-group>
-          </el-submenu>
         </el-menu>
       </el-aside>
       <el-container>
